@@ -16,11 +16,13 @@ public class ShipController : MonoBehaviour
     private Vector3 moveVector;
     private float nextFireTime;
     private Rigidbody ship;
+    private AudioSource audioSource;
 
     private void Awake()
     {
-        // Get ship's rigidbody component
+        // Get the ship's rigidbody component & audio source component
         ship = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,10 +31,13 @@ public class ShipController : MonoBehaviour
         move();
         shoot();
 
+        // Update the health text
         healthText.text = "Health: " + health.ToString();
 
+        // Check if the ship has no health
         if (health == 0)
         {
+            // Destroy the ship
             Destroy(gameObject);
         }
     }
@@ -51,13 +56,16 @@ public class ShipController : MonoBehaviour
 
     private void shoot()
     {
+        // Check if the spacebar is pressed and if the fire rate delay has passed
         if (Input.GetKey(KeyCode.Space) && Time.time >= nextFireTime) {
             // Create vector to spawn bullet and tip of cannon
             bulletSpawnVector = new Vector3(cannon.transform.position.x, 0f, cannon.transform.position.z);
             
-            // Spawn the prefab
+            // Spawn the projectile prefab & play the associated sound file
             GameObject spawnedPrefab = Instantiate(bulletPrefab, bulletSpawnVector, Quaternion.identity);
+            audioSource.Play();
 
+            // Create delay for fire rate of cannon
             nextFireTime = Time.time + fireRate;
         }
     }
