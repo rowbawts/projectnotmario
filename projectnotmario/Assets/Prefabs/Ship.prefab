@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1494222843101074827}
   m_Layer: 6
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
+  fireRate: 0.5
   cannon: {fileID: 2114463316504609424}
   bulletPrefab: {fileID: 1935362840955644938, guid: 2e16a3a9f28014868be99aac15622546,
     type: 3}
