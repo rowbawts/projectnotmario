@@ -5,12 +5,13 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     public float launchForce = 10f;
+    public Vector3 direction = Vector3.forward;
     private Rigidbody bullet;
     
     void Awake()
     {
         bullet = GetComponent<Rigidbody>();
 
-        bullet.AddForce(Vector3.forward * launchForce, ForceMode.Impulse);
+        bullet.AddForce(direction * launchForce, ForceMode.Impulse);
     }
 }

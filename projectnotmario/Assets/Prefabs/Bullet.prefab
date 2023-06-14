@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 15
+  direction: {x: 0, y: 0, z: 1}
 --- !u!1 &8775097982652056473
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,3 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7db5f70ffa51dd9bb8288765f844644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToDestroy: {fileID: 1935362840955644938}
